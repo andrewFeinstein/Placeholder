@@ -4,9 +4,10 @@ using TMPro;
 public class enemyBattle : MonoBehaviour
 {
     [SerializeField] GameObject enemyHealthBar;
-    [SerializeField] TMP_Text healthText;
+    TMP_Text healthText;
     float enemyMaxHealth = 10f;
-    float enemyCurrentHealth = 10f;
+    [SerializeField] float enemyCurrentHealth = 10f;
+    [SerializeField] float damageDealt;
 
     void Start()
     {
@@ -17,12 +18,16 @@ public class enemyBattle : MonoBehaviour
     void Update()
     {
         healthText.text = (int)((enemyCurrentHealth/enemyMaxHealth)*100) + "%";
-        if(enemyCurrentHealth>0)
+    }
+
+    public void takeDamage(float damage)
+    {
+        enemyCurrentHealth -= damage;
+        if(enemyCurrentHealth<=0)
         {
-            enemyCurrentHealth -= .01f;
-        }else{
             Destroy(enemyHealthBar);
             Destroy(gameObject);
         }
+        Object.FindAnyObjectByType<partyBattle>().takeDamage(damageDealt);
     }
 }

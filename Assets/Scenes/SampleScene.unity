@@ -150,7 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   enemyHealthBar: {fileID: 817811176291158545, guid: 14ec49eeea6747144ab09391ed94308b, type: 3}
-  healthText: {fileID: 0}
+  enemyCurrentHealth: 10
+  damageDealt: 1
 --- !u!212 &113659915
 SpriteRenderer:
   serializedVersion: 2
@@ -477,7 +478,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   enemyHealthBar: {fileID: 817811176291158545, guid: 14ec49eeea6747144ab09391ed94308b, type: 3}
-  healthText: {fileID: 0}
+  enemyCurrentHealth: 10
+  damageDealt: 1
 --- !u!212 &1064389974
 SpriteRenderer:
   serializedVersion: 2
@@ -656,11 +658,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796b82f2ca15c6745b9cedf3a7128e3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  damageDealt: 0
-  characterHealth: 0
-  activeEnemies: []
-  selectedEnemy: 0
+  damageDealt: 1
+  maxHealth: 10
   enemySelector: {fileID: 433047722410897110, guid: 170d190f0abd1334c964eeb5389aab55, type: 3}
+  healthBar: {fileID: 817811176291158545, guid: 14ec49eeea6747144ab09391ed94308b, type: 3}
 --- !u!1 &1517510894
 GameObject:
   m_ObjectHideFlags: 0
