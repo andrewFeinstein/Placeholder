@@ -12,6 +12,7 @@ public class enemyBattle : MonoBehaviour
     void Start()
     {
         enemyHealthBar = Instantiate(enemyHealthBar, transform.position + new Vector3(0,1.5f,0), Quaternion.identity, GameObject.FindAnyObjectByType<Canvas>().transform);
+        //^^creates the health text object. its not as scary as it looks
         healthText = enemyHealthBar.GetComponent<TMP_Text>();
     }
 
@@ -29,5 +30,6 @@ public class enemyBattle : MonoBehaviour
             Destroy(gameObject);
         }
         Object.FindAnyObjectByType<partyBattle>().takeDamage(damageDealt);
+        //^^this line is temp, but it works if there is only on party memeber
     }
 }
