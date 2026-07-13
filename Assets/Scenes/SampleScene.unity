@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   enemyHealthBar: {fileID: 817811176291158545, guid: 14ec49eeea6747144ab09391ed94308b, type: 3}
   enemyCurrentHealth: 10
-  damageDealt: 1
+  damageDealt: 0.5
 --- !u!212 &113659915
 SpriteRenderer:
   serializedVersion: 2
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   enemyHealthBar: {fileID: 817811176291158545, guid: 14ec49eeea6747144ab09391ed94308b, type: 3}
   enemyCurrentHealth: 10
-  damageDealt: 1
+  damageDealt: 0.5
 --- !u!212 &1064389974
 SpriteRenderer:
   serializedVersion: 2
