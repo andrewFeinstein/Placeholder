@@ -8,6 +8,7 @@ public class BattleManager : MonoBehaviour
     [SerializeField]enemyBattle[] activeEnemies;
     [SerializeField]partyBattle[] activeAllies;
     [SerializeField] int currentActor;
+    bool frameCheck = false;
     
 
     void Start()
@@ -16,7 +17,6 @@ public class BattleManager : MonoBehaviour
         currentActor = 0;
         activeEnemies = Object.FindObjectsByType<enemyBattle>();
         activeAllies = Object.FindObjectsByType<partyBattle>();
-        //activeAllies[0].playTurn();
         startTurn();
     }
 
@@ -33,7 +33,7 @@ public class BattleManager : MonoBehaviour
             currentTurn = 0;
             currentActor = 0;
         }
-        startTurn();
+        frameCheck = true;
     }
 
     public void startTurn()
@@ -50,6 +50,10 @@ public class BattleManager : MonoBehaviour
 
     void Update()
     {
-        
+        if(frameCheck == true)
+        {
+            frameCheck = false;
+            startTurn();
+        }
     }
 }

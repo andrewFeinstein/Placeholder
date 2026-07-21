@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class enemyBattle : MonoBehaviour
 {
@@ -39,6 +40,13 @@ public class enemyBattle : MonoBehaviour
     {
         activeAllies[UnityEngine.Random.Range(0,activeAllies.Length-1)].takeDamage(damageDealt);
         Debug.Log("Enemy Acted");
+        StartCoroutine(dramaticPause());
+    }
+
+    IEnumerator dramaticPause()
+    {
+        yield return new WaitForSeconds(1f);
         battleManager.endTurn();
     }
+
 }

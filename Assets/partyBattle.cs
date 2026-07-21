@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using System.Collections;
 
 public class partyBattle : MonoBehaviour
 {
@@ -69,11 +70,19 @@ public class partyBattle : MonoBehaviour
     public void takeDamage(float damage)
     {
         currentHealth -= damage;
+        StartCoroutine(damageAnimation());
         if(currentHealth <= 0)
         {
             Destroy(enemySelector);
             Destroy(healthBar);
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator damageAnimation()
+    {
+        GetComponent<Renderer>().material.color = Color.red;
+        yield return new WaitForSeconds(.5f);
+        GetComponent<Renderer>().material.color = Color.white;
     }
 }
