@@ -16,47 +16,35 @@ public class BattleManager : MonoBehaviour
         currentActor = 0;
         activeEnemies = Object.FindObjectsByType<enemyBattle>();
         activeAllies = Object.FindObjectsByType<partyBattle>();
-        activeAllies[0].playTurn();
+        //activeAllies[0].playTurn();
+        startTurn();
     }
 
-    public int checkTurn()
+    public void endTurn()
     {
-        return currentTurn;
-    }
-
-    public void nextTurn()
-    {
-        //turn 0 = ally turns, turn 1 = enemy turns
-        if(currentTurn==0)
+        currentActor += 1;
+        if(currentTurn==0 && currentActor>=activeAllies.Length)
         {
-            if(currentActor < activeAllies.Length)
-            {
-                
-                if(activeAllies[currentActor] != null)
-                {
-                    activeAllies[currentActor].playTurn();
-                    currentActor += 1;
-                }
-            }else{
-                currentTurn = 1;
-                currentActor = 0;
-                nextTurn();
-            }
+            currentTurn = 1;
+            currentActor = 0;
         }
-        if(currentTurn==1 && activeEnemies.Length>=currentActor+1)
+        if(currentTurn==1 && currentActor>=activeEnemies.Length)
         {
-            if(currentActor < activeEnemies.Length)
-            {
-                if(activeEnemies[currentActor] != null)
-                {
-                    activeEnemies[currentActor].playTurn();
-                    currentActor += 1;
-                }
-            }else if(currentTurn == 1){
-                currentTurn = 0;
-                currentActor = 0;
-                nextTurn();
-            }
+            currentTurn = 0;
+            currentActor = 0;
+        }
+        startTurn();
+    }
+
+    public void startTurn()
+    {
+        if(currentTurn == 0)
+        {
+            activeAllies[currentActor].playTurn();
+        }
+        if(currentTurn == 1)
+        {
+            activeEnemies[currentActor].playTurn();
         }
     }
 

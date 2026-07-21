@@ -39,6 +39,6 @@ public class enemyBattle : MonoBehaviour
     {
         activeAllies[UnityEngine.Random.Range(0,activeAllies.Length-1)].takeDamage(damageDealt);
         Debug.Log("Enemy Acted");
-        //battleManager.nextTurn();
+        battleManager.endTurn();
     }
 }

@@ -53,8 +53,10 @@ public class partyBattle : MonoBehaviour
             {//if space pressed
                 activeEnemies[selectedEnemy].takeDamage(damageDealt);//damage selected enemy
                 isActing = false;
-                battleManager.GetComponent<BattleManager>().nextTurn();
+                battleManager.GetComponent<BattleManager>().endTurn();
             }
+        }else{
+            enemySelector.SetActive(false);
         }
     }
 
