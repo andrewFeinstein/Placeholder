@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 74112069}
   - component: {fileID: 74112068}
   m_Layer: 0
-  m_Name: partyMember1 (2)
+  m_Name: partyMember3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,6 @@ MonoBehaviour:
   maxHealth: 10
   enemySelector: {fileID: 433047722410897110, guid: 170d190f0abd1334c964eeb5389aab55, type: 3}
   healthBar: {fileID: 817811176291158545, guid: 14ec49eeea6747144ab09391ed94308b, type: 3}
-  isActing: 0
 --- !u!212 &74112069
 SpriteRenderer:
   serializedVersion: 2
@@ -222,7 +221,7 @@ Transform:
   m_GameObject: {fileID: 74112067}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.47, y: 3.87, z: 0}
+  m_LocalPosition: {x: -5, y: -2, z: 0}
   m_LocalScale: {x: 1.8485, y: 1.8485, z: 1.8485}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -259,7 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   enemyHealthBar: {fileID: 817811176291158545, guid: 14ec49eeea6747144ab09391ed94308b, type: 3}
-  enemyCurrentHealth: 10
+  enemyMaxHealth: 10
   damageDealt: 0.5
 --- !u!212 &113659915
 SpriteRenderer:
@@ -364,10 +363,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e88dcab2316c9b408a94cc90a9e0e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  currentTurn: 0
-  activeEnemies: []
-  activeAllies: []
-  currentActor: 0
 --- !u!4 &186680011
 Transform:
   m_ObjectHideFlags: 0
@@ -489,7 +484,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -532,7 +527,7 @@ GameObject:
   - component: {fileID: 607360548}
   - component: {fileID: 607360547}
   m_Layer: 0
-  m_Name: partyMember1 (3)
+  m_Name: partyMember4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -554,7 +549,6 @@ MonoBehaviour:
   maxHealth: 10
   enemySelector: {fileID: 433047722410897110, guid: 170d190f0abd1334c964eeb5389aab55, type: 3}
   healthBar: {fileID: 817811176291158545, guid: 14ec49eeea6747144ab09391ed94308b, type: 3}
-  isActing: 0
 --- !u!212 &607360548
 SpriteRenderer:
   serializedVersion: 2
@@ -623,7 +617,7 @@ Transform:
   m_GameObject: {fileID: 607360546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.48, y: 3.39, z: 0}
+  m_LocalPosition: {x: -8, y: -4, z: 0}
   m_LocalScale: {x: 1.8485, y: 1.8485, z: 1.8485}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -744,7 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   enemyHealthBar: {fileID: 817811176291158545, guid: 14ec49eeea6747144ab09391ed94308b, type: 3}
-  enemyCurrentHealth: 10
+  enemyMaxHealth: 10
   damageDealt: 0.5
 --- !u!212 &1064389974
 SpriteRenderer:
@@ -906,7 +900,7 @@ Transform:
   m_GameObject: {fileID: 1479984982}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0}
+  m_LocalPosition: {x: -8, y: 4, z: 0}
   m_LocalScale: {x: 1.8485, y: 1.8485, z: 1.8485}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -928,7 +922,6 @@ MonoBehaviour:
   maxHealth: 10
   enemySelector: {fileID: 433047722410897110, guid: 170d190f0abd1334c964eeb5389aab55, type: 3}
   healthBar: {fileID: 817811176291158545, guid: 14ec49eeea6747144ab09391ed94308b, type: 3}
-  isActing: 0
 --- !u!1 &1517510894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1134,7 +1127,7 @@ GameObject:
   - component: {fileID: 1915294061}
   - component: {fileID: 1915294060}
   m_Layer: 0
-  m_Name: partyMember1 (1)
+  m_Name: partyMember2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1156,7 +1149,6 @@ MonoBehaviour:
   maxHealth: 10
   enemySelector: {fileID: 433047722410897110, guid: 170d190f0abd1334c964eeb5389aab55, type: 3}
   healthBar: {fileID: 817811176291158545, guid: 14ec49eeea6747144ab09391ed94308b, type: 3}
-  isActing: 0
 --- !u!212 &1915294061
 SpriteRenderer:
   serializedVersion: 2
@@ -1225,7 +1217,7 @@ Transform:
   m_GameObject: {fileID: 1915294059}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.25, y: -4.55, z: 0}
+  m_LocalPosition: {x: -5, y: 2, z: 0}
   m_LocalScale: {x: 1.8485, y: 1.8485, z: 1.8485}
   m_ConstrainProportionsScale: 0
   m_Children: []

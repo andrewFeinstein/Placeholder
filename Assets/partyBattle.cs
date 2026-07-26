@@ -17,7 +17,9 @@ public class partyBattle : MonoBehaviour
     TMP_Text healthText;
     //im using text right now because i don't know how to make an actual health bar
     GameObject battleManager;
-    [SerializeField]bool isActing = false;
+    bool isActing = false;
+    //set to true at the start of turn, activating the selection and attack logic
+    
     void Start()
     {
         activeEnemies = Object.FindObjectsByType<enemyBattle>();
@@ -62,25 +64,25 @@ public class partyBattle : MonoBehaviour
     }
 
     public void playTurn()
-    {
+    {//called by BattleManager at start of turn
         isActing = true;
-        Debug.Log("Player is acting");
+        Debug.Log(gameObject.name + " is acting");
     }
 
     public void takeDamage(float damage)
-    {
+    {//called when enemy attacks this ally
         currentHealth -= damage;
         StartCoroutine(damageAnimation());
         if(currentHealth <= 0)
-        {
+        {//if this ally is dead
             Destroy(enemySelector);
             Destroy(healthBar);
             Destroy(gameObject);
-        }
+        }//destroy everything related to it
     }
 
     IEnumerator damageAnimation()
-    {
+    {//ally flashes red when taking damage
         GetComponent<Renderer>().material.color = Color.red;
         yield return new WaitForSeconds(.5f);
         GetComponent<Renderer>().material.color = Color.white;
