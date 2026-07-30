@@ -19,23 +19,30 @@ public class partyBattle : MonoBehaviour
     GameObject battleManager;
     bool isActing = false;
     //set to true at the start of turn, activating the selection and attack logic
+    [SerializeField] float maxMP;
+    float currentMP;
+    [SerializeField] GameObject MPBar;
+    TMP_Text MPText;
+    //MP works exactly the same as HP, it just gets reduced in a different place
     
     void Start()
     {
         activeEnemies = Object.FindObjectsByType<enemyBattle>();
         System.Array.Sort(activeEnemies, (a, b) => b.transform.position.y.CompareTo(a.transform.position.y)); //sorts enemy list by y position
         enemySelector = Instantiate(enemySelector, activeEnemies[0].transform.position, Quaternion.identity);
-        healthBar = Instantiate(healthBar, transform.position + new Vector3(0,1.5f,0), Quaternion.identity, GameObject.FindAnyObjectByType<Canvas>().transform);
-        healthText = healthBar.GetComponent<TMP_Text>(); //gets the text compentent of the healthbar
+        healthText = healthBar.GetComponent<TMP_Text>(); //gets the text compentent of the health bar
+        MPText = MPBar.GetComponent<TMP_Text>();
         currentHealth = maxHealth;
+        currentMP = maxMP;
         battleManager = GameObject.FindWithTag("BattleManager");
     }
 
     void Update()
     {
-        healthText.text = (int)((currentHealth/maxHealth)*100) + "%";
         if(isActing == true)
         {
+            healthText.text = "HP: " + (int)((currentHealth/maxHealth)*100) + "%";
+            MPText.text = "MP: " + (int)((currentMP/maxMP)*100) + "%";
             if(Keyboard.current!=null && Keyboard.current.downArrowKey.wasPressedThisFrame && selectedEnemy+1<activeEnemies.Length)
             {//if down arrow pressed and there is an enemy below
                 selectedEnemy += 1;
@@ -54,7 +61,11 @@ public class partyBattle : MonoBehaviour
             }
             if(Keyboard.current!=null && Keyboard.current.spaceKey.wasPressedThisFrame)
             {//if space pressed
+                if(currentMP>0)
+                {
                 activeEnemies[selectedEnemy].takeDamage(damageDealt);//damage selected enemy
+                currentMP -= 1;
+                }
                 isActing = false;
                 battleManager.GetComponent<BattleManager>().endTurn();
             }

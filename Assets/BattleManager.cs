@@ -10,6 +10,11 @@ public class BattleManager : MonoBehaviour
     partyBattle[] activeAllies;
     int currentActor = 0; 
     //the index of the object currently acting. ex: if currentTurn==0 and currentActor==2, the thrid party member is acting
+    [SerializeField] GameObject allyIndicator;
+    //shows which ally is currently acting
+    [SerializeField] GameObject resourcePanel;
+    [SerializeField] GameObject attackPanel;
+    //the panels that hold resources bars and attack buttons
     
     void Start()
     {
@@ -19,6 +24,7 @@ public class BattleManager : MonoBehaviour
         activeAllies = Object.FindObjectsByType<partyBattle>();
         System.Array.Sort(activeAllies, (a, b) => b.transform.position.y.CompareTo(a.transform.position.y));
         //set and sort active allies
+        allyIndicator.SetActive(true);
         startTurn();
     }
 
@@ -30,11 +36,16 @@ public class BattleManager : MonoBehaviour
             currentTurn = 1;
             currentActor = 0;
             //switch to first enemy turn
+            resourcePanel.SetActive(false);
+            attackPanel.SetActive(false);
+            //hide ui elements
         }
         if(currentTurn==1 && currentActor>=activeEnemies.Length)
         {//same but for enemy to ally
             currentTurn = 0;
             currentActor = 0;
+            resourcePanel.SetActive(true);
+            attackPanel.SetActive(true);
         }
         StartCoroutine(turnLag());
     }
@@ -43,6 +54,12 @@ public class BattleManager : MonoBehaviour
     {//this is needed to prevent 1 space press from activating 2 ally turns at once
     //this waits a given amount of time before starting the next turn
         yield return new WaitForSeconds(.1f);
+        if(currentTurn==0)
+        {//show or hide the ally indicator
+            allyIndicator.SetActive(true);
+        }else{
+            allyIndicator.SetActive(false);
+        }
         startTurn();
     }
 
@@ -50,6 +67,7 @@ public class BattleManager : MonoBehaviour
     {//starts the next actors turn
         if(currentTurn == 0)
         {
+            allyIndicator.transform.position = activeAllies[currentActor].transform.position;
             activeAllies[currentActor].playTurn();
         }
         if(currentTurn == 1)
