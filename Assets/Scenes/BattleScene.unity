@@ -153,7 +153,7 @@ MonoBehaviour:
   maxHealth: 10
   enemySelector: {fileID: 433047722410897110, guid: 170d190f0abd1334c964eeb5389aab55, type: 3}
   healthBar: {fileID: 306034132}
-  maxMP: 1
+  maxMP: 10
   MPBar: {fileID: 1720629350}
 --- !u!212 &74112069
 SpriteRenderer:
@@ -1327,7 +1327,7 @@ MonoBehaviour:
   maxHealth: 10
   enemySelector: {fileID: 433047722410897110, guid: 170d190f0abd1334c964eeb5389aab55, type: 3}
   healthBar: {fileID: 306034132}
-  maxMP: 1
+  maxMP: 10
   MPBar: {fileID: 1720629350}
 --- !u!212 &607360548
 SpriteRenderer:
@@ -2275,7 +2275,7 @@ MonoBehaviour:
   maxHealth: 10
   enemySelector: {fileID: 433047722410897110, guid: 170d190f0abd1334c964eeb5389aab55, type: 3}
   healthBar: {fileID: 306034132}
-  maxMP: 1
+  maxMP: 10
   MPBar: {fileID: 1720629350}
 --- !u!1 &1517510894
 GameObject:
@@ -2648,7 +2648,7 @@ MonoBehaviour:
   maxHealth: 10
   enemySelector: {fileID: 433047722410897110, guid: 170d190f0abd1334c964eeb5389aab55, type: 3}
   healthBar: {fileID: 306034132}
-  maxMP: 1
+  maxMP: 10
   MPBar: {fileID: 1720629350}
 --- !u!212 &1915294061
 SpriteRenderer:

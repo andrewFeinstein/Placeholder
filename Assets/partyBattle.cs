@@ -59,15 +59,36 @@ public class partyBattle : MonoBehaviour
             }else{
                 enemySelector.SetActive(false);//hide enemySelector
             }
-            if(Keyboard.current!=null && Keyboard.current.spaceKey.wasPressedThisFrame)
-            {//if space pressed
-                if(currentMP>0)
+            if(Keyboard.current!=null)
+            {//if any key pressed
+                if(Keyboard.current.digit1Key.wasPressedThisFrame && currentMP>=1)
                 {
                 activeEnemies[selectedEnemy].takeDamage(damageDealt);//damage selected enemy
                 currentMP -= 1;
-                }
                 isActing = false;
                 battleManager.GetComponent<BattleManager>().endTurn();
+                }
+                if(Keyboard.current.digit2Key.wasPressedThisFrame && currentMP>=2)
+                {
+                activeEnemies[selectedEnemy].takeDamage(damageDealt*2);//damage selected enemy
+                currentMP -= 2;
+                isActing = false;
+                battleManager.GetComponent<BattleManager>().endTurn();
+                }
+                if(Keyboard.current.digit3Key.wasPressedThisFrame && currentMP>=3)
+                {
+                activeEnemies[selectedEnemy].takeDamage(damageDealt*3);//damage selected enemy
+                currentMP -= 3;
+                isActing = false;
+                battleManager.GetComponent<BattleManager>().endTurn();
+                }
+                if(Keyboard.current.digit4Key.wasPressedThisFrame && currentMP>=4)
+                {
+                activeEnemies[selectedEnemy].takeDamage(damageDealt*4);//damage selected enemy
+                currentMP -= 4;
+                isActing = false;
+                battleManager.GetComponent<BattleManager>().endTurn();
+                }
             }
         }else{
             enemySelector.SetActive(false);
