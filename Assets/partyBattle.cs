@@ -24,6 +24,10 @@ public class partyBattle : MonoBehaviour
     [SerializeField] GameObject MPBar;
     TMP_Text MPText;
     //MP works exactly the same as HP, it just gets reduced in a different place
+    GameObject moveButton1;
+    GameObject moveButton2;
+    GameObject moveButton3;
+    GameObject moveButton4;
     
     void Start()
     {
@@ -35,6 +39,10 @@ public class partyBattle : MonoBehaviour
         currentHealth = maxHealth;
         currentMP = maxMP;
         battleManager = GameObject.FindWithTag("BattleManager");
+        moveButton1 = GameObject.Find("Move1Button");
+        moveButton2 = GameObject.Find("Move2Button");
+        moveButton3 = GameObject.Find("Move3Button");
+        moveButton4 = GameObject.Find("Move4Button");
     }
 
     void Update()
@@ -99,6 +107,7 @@ public class partyBattle : MonoBehaviour
     {//called by BattleManager at start of turn
         isActing = true;
         Debug.Log(gameObject.name + " is acting");
+        
     }
 
     public void takeDamage(float damage)
